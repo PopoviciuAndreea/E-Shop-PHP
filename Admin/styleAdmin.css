@@ -1,0 +1,45 @@
+ul {
+    list-style-type: none; 
+    margin : 0px;
+    padding: 0px;
+    overflow : hidden; 
+    }
+    li {
+        float: left;
+    
+    }
+    li a.menu-item {
+        display: block;
+        padding: 15px;
+        padding-left: 40px;
+        padding-right: 40px;
+        text-decoration: none;
+        font-family:'Calibri';
+        font-size:20px;
+        color: black;
+    }
+    li a.menu-item:hover {
+        background-color: rgb(245, 245, 245)
+    }
+    /*#cos {
+        margin-left: 100px;
+    }
+    */
+    
+    #magazin {
+        padding-right: 30px;
+    }
+    .menu {
+        border-bottom: 1px solid gray;
+    }
+    
+    
+    body {
+        max-width: 100%;
+    }
+    
+
+    .txt-heading-label {
+        display:inline;
+        margin-left: 40px;
+    }

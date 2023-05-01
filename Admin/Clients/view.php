@@ -1,0 +1,71 @@
+<?php
+include("../../config.php");
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http;??www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <title> <?php echo $lang['titluAdmin'] ?> </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link href="../styleAdmin.css" type="text/css" rel="stylesheet" />
+    <head>
+    <body>
+        <h3> <?php echo $lang['nume'] ?> </h3>
+        <div class="menu">
+            <ul>
+                <li> <a class="menu-item" href="view.php"> <?php echo $lang['adminClienti'] ?> </a> </li>
+                <li> <a class="menu-item" href="../view.php"> <?php echo $lang['adminProduse'] ?> </a> </li>
+                <li> <a class="menu-item" href="../../shop.php" id="magazin"> <?php echo $lang['magazin'] ?> </a> </li>
+                <li> <a class="menu-item" href="../../home.php"> <?php echo $lang['acasa'] ?> </a> </li>
+                <li> <a class="menu-item" href="view.php?lang=RO"> RO </a> </li>
+                <li> <a class="menu-item" href="view.php?lang=EN"> EN </a> </li>
+                <li> <a class="menu-item" href="../../cart.php" id="cos"> <?php echo $lang['cos'] ?> </a> </li>
+                <li> <a class="menu-item" href="../../logout.php" id="logout"> <?php echo $lang['deconectare'] ?> </a> </li>
+            </ul>
+        </div>
+        <h1> <?php echo $lang['clienti'] ?> </h1>
+        <p><b> <?php echo $lang['paragrafClienti'] ?> </b></p>
+        <?php 
+            include("../Connect.php");
+            if($result = $mysqli -> query("SELECT * FROM clienti ORDER BY client_id")) {
+                if($result -> num_rows > 0) {
+                    echo "<table border = '1' cellpadding = '10'>";
+                    echo "<tr><th>".$lang['id']."</th><th>".$lang['username']."</th><th>".$lang['parola']."</th><th>".$lang['email']."</th>
+                          <th>".$lang['strada']."</th><th>".$lang['oras']."</th><th>".$lang['tara']."</th><th>".$lang['codPostal']."</th>
+                          <th>".$lang['numarCard']."</th><th>".$lang['tipCard']."</th><th>".$lang['dataExpirare']."</th><th>".$lang['numeClient']."</th>
+                          <th></th><th></th></tr>";
+                    while($row = $result -> fetch_object()) {
+                        echo "<tr>";
+                        echo "<td>".$row->client_id."</td>";
+                        echo "<td>".$row->client_username."</td>";
+                        echo "<td>".$row->client_password."</td>";
+                        echo "<td>".$row->client_email."</td>";
+                        echo "<td>".$row->client_str."</td>";
+                        echo "<td>".$row->client_oras."</td>";
+                        echo "<td>".$row->client_tara."</td>";
+                        echo "<td>".$row->client_codpost."</td>";
+                        echo "<td>".$row->client_nrcard."</td>";
+                        echo "<td>".$row->client_tipcard."</td>";
+                        echo "<td>".$row->client_dataexp."</td>";
+                        echo "<td>".$row->client_nume."</td>";
+
+                        echo "<td><a href='Edit.php?client_id=" . $row->client_id . "'>".$lang['modificare']." </a></td>";
+                        echo "<td><a href='Delete.php?client_id=".$row->client_id."'>".$lang['stergere']." </a></td>";
+                        echo "<tr>";
+                    }
+                    echo "</table>";
+                } else {
+                    echo "Nu sunt inregistrari in tabela!";
+                }
+            } else {
+            echo "Error: " . $mysqli->error;
+            }
+            $mysqli -> close();
+        ?>
+        <a href = "Insert.php"> <?php echo $lang['inserare'] ?> </a>
+        <footer class = "footer">
+            <?php echo $lang['despre'] ?> Magazin electronice <br>
+            <?php echo $lang['contact'] ?> Email: magazinElectronice@magazin.com <br>
+            Copyright &copy 2023 Magazin Electronice <br>
+        </footer>
+    </body>
+</html>

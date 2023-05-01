@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>Inregistrare</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    </head>
+    <body>
+        <div class="register">
+            <h1>Register</h1>
+            <form action="registration.php" method="POST" autocomplete="off">
+                <label for = "username">
+                    <i class = "fas fa-user"></i>
+                </label>
+                <input type="text" name="username" placeholder="Username" id="username" required>
+
+                <label for="password">
+                    <i class="fas fa-lock"></i>
+                </label>
+                <input type="password" name="password" placeholder="Parola" id="password" required>
+
+                <label for="email">
+                    <i class="fas fa-envelope"></i>
+                </label>
+                <input type="email" name="email" placeholder="Email" id="email" required>
+
+
+                <br><br>
+                <p>Date personale: </p>
+                <label for="client_str"></label>
+                <input type="text" name="client_str" placeholder="Strada" id="client_str" required>
+
+                <label for="client_oras"></label>
+                <input type="text" name="client_oras" placeholder="Oras" id="client_oras" required>
+
+                <br><br>
+                <label for="client_tara"></label>
+                <input type="text" name="client_tara" placeholder="Tara" id="client_tara" required>
+
+                <label for="client_codpost"></label>
+                <input type="text" name="client_codpost" placeholder="Cod postal" id="client_codpost" required>
+
+                <br><br>
+                <label for="client_nrcard"></label>
+                <input type="text" name="client_nrcard" placeholder="Numar card" id="client_nrcard" required>
+
+                <label for="client_tipcard"></label>
+                <input type="text" name="client_tipcard" placeholder="Tip card" id="client_tipcard" required>
+
+                <br><br>
+
+                <label for="client_dataexp"></label>
+                <input type="text" name="client_dataexp" placeholder="Data expirare card" id="client_dataexp" required>
+
+
+                <label for="client_nume"></label>
+                <input type="text" name="client_nume" placeholder="Nume complet" id="client_nume" required>
+
+
+                <br><br>
+                <input type="submit" value="Register">
+            </form>
+        </div>
+    </body>
+</html>
